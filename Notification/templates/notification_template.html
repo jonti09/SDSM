@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification</title>
+    <style type="text/css">
+        li {
+            padding-bottom: 10px;
+        }
+
+        div {
+            color: white;
+        }
+    </style>
+    {% block style %}
+    {% endblock %}
+    {% load staticfiles %}
+    <script src="{% static 'js/jQuery.js' %}"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                'url': 'weather/',
+                success: function (data) {
+                    $("#weather").append(data)
+                }
+            });
+
+            $.ajax({
+                url: 'help/',
+                success: function(data) {
+                    $("#help").html(data)
+                }
+            });
+        });
+    </script>
+
+</head>
+<body style="background-color: black;">
+
+    <div style="width: 30%; float: left;" class="col-md">
+        {% block news %}
+        {% endblock %}
+    </div>
+
+    <div style="width: 20%; float: right;" id="weather">
+        {% block img %}
+            <img src="{% static 'icon/weather-ico.png' %}" width="64px" height="64px" align="center">
+        {% endblock %}
+    </div>
+
+    <div style="float: right; position: fixed; top: 70%; left: 80%;" id="help">
+    </div>
+
+</body>
+</html>

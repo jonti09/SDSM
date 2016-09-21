@@ -1,0 +1,11 @@
+Packages Needed:
+
+    pip3 (sudo apt-get install python3-pip)
+    SpeechRecognition (sudo pip3 install SpeechRecognition)
+    Django 1.9 (sudo pip3 install django==1.9)
+    Python3
+
+Run:
+
+    cd Project/
+    sudo python3 manage.py runserver 80 (or python3 manage.py runserver (port will be 8000)

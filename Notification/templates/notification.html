@@ -1,0 +1,10 @@
+{% extends 'notification_template.html' %}
+
+{% block news %}
+    <h2 style="padding-left: 50px;">News</h2>
+    <ul style="list-style-type: circle; font-size: 13px;">
+        {% for news in object_list %}
+            <li>{{ news.head_line }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
