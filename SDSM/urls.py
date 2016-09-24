@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^notification/', include('Notification.urls')),
 ]
 
-task.insert_toi()
-task.weather()
+# task.insert_toi()
+# task.weather()
