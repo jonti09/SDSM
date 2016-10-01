@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import speech_recognition as sr
 import re
 import selenium.webdriver as webdriver
@@ -24,10 +25,17 @@ def callback(recognizer, audio):
             b.maximize_window()
             b.get('http://localhost/notification')
 
+        if re.findall(r'yesterday|previous day', cmd):
+            print('news..')
+            b.get('http://localhost/notification/yesterday')
+
     except sr.UnknownValueError:
-            print("Couldn't catch that")
+        print("Couldn't catch that")
     except sr.RequestError as e:
-            print("Can not request recognition at the moment")
+        print("Can not request recognition at the moment")
+    except:
+        print('Browser Error')
+
 
 with sr.Microphone() as source:
     r.adjust_for_ambient_noise(source)
