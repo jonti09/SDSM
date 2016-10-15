@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/generic.css' %}">
+    <script src="{% static 'js/clock.js' %}"></script>
+    <script src="{% static 'js/jQuery.js' %}"></script>
+
+    {% block style %}
+    {% endblock %}
+    <script>
+        $(function(){
+            $.ajax({
+                'url': 'weather/',
+                success: function (data) {
+                    $("#weather").append(data)
+                }
+            });
+        });
+    </script>
+
+</head>
+<body onload="clock()">
+
+    <div style="width: 100%">
+        <div style="width: 30%; float: left;">
+            {% block news %}
+            {% endblock %}
+        </div>
+
+        <div style="width: 20%; float: right;">
+            {% block img %}
+                <img src="{% static 'icon/weather-ico.png' %}" width="64px" height="64px" align="center">
+            {% endblock %}
+            <p id="weather"></p>
+            <p id="time"></p>
+        </div>
+    </div>
+    <br/>
+    <div style="text-align: center; margin-top: 40%">
+        <p>What can I say?</p>
+    </div>
+
+</body>
+</html>

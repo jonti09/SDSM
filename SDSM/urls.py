@@ -4,7 +4,7 @@ from SDSM import task
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^notification/', include('Notification.urls')),
+    url(r'^notification/', include('Data.urls')),
 ]
 
 task.insert_toi()

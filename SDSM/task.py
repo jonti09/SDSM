@@ -1,6 +1,6 @@
-from Notification.models import ToiNews, Weather
-from Notification.data.news import toi
-from Notification.data.weather import accu_weather
+from Data.models import ToiNews, Weather
+from Data.data.news import toi
+from Data.data.weather import accu_weather
 from datetime import datetime
 
 

@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Home</title>
+    {% load staticfiles %}
+    <script src="{% static 'js/clock.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/generic.css' %}">
+
+</head>
+
+<body onload="clock()">
+
+    <div style="align-content: right; margin-left: 85%">
+        <img src="{% static 'icon/weather-ico.png' %}" width="64px" height="64px" align="center">
+        {% for info in object_list %}
+            <h1>{{ info.temp }}C</h1>
+            <p>of {{ info.city }}</p>
+        {% endfor %}
+    </div>
+
+    <div id="time" class="msg"></div>
+
+    <div class="msg greet">
+        <p>Hey, There!!</p>
+    </div>
+
+    <div class="msg help">
+        <p>What can I say?</p>
+    </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Notification.models import ToiNews, Weather, Help
+from Data.models import ToiNews, Weather, Help
 
 # Register your models here.
 

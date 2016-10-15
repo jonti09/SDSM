@@ -1,0 +1,27 @@
+div {
+    color: white;
+}
+
+li {
+    padding-bottom: 10px;
+}
+
+body {
+    background-color: black;
+}
+
+.msg {
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.greet {
+    margin-top: 0%;
+    font-size: 1.5em;
+}
+
+.help {
+    font-size: 1em;
+}
