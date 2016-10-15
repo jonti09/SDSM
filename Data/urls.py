@@ -11,7 +11,7 @@ urlpatterns = [
         ListView.as_view(queryset=Weather.objects.all().order_by('-date')[:1], template_name='home.html')),
 
     url(r'^news$',
-        ListView.as_view(queryset=ToiNews.objects.all().order_by('-date')[:10], template_name='notification.html')),
+        ListView.as_view(queryset=ToiNews.objects.all().order_by('-date')[:10], template_name='news.html')),
 
     url(r'^yesterday/$',
         ListView.as_view(queryset=ToiNews.objects.filter(date__lte=(datetime.now() - timedelta(days=1)))[:10],

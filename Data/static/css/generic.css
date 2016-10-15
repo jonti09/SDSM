@@ -3,7 +3,7 @@ div {
 }
 
 li {
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 body {
@@ -24,4 +24,5 @@ body {
 
 .help {
     font-size: 1em;
+    margin-top: 20%;
 }

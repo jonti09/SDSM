@@ -9,7 +9,7 @@
 
 <body onload="clock()">
 
-    <div style="align-content: right; margin-left: 85%">
+    <div style="align-content: right; margin-left: 80%">
         <img src="{% static 'icon/weather-ico.png' %}" width="64px" height="64px" align="center">
         {% for info in object_list %}
             <h1>{{ info.temp }}C</h1>
