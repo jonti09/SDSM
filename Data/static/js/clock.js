@@ -6,8 +6,10 @@ function clock() {
 
     var meridian = "AM";
     if(h >= 12) {
-        meridian = "PM";
-        h -= 12;
+        if (h >= 12)
+            meridian = "PM"
+        if(h > 12)
+            h -= 12;
     }
 
     m = checkTime(m);

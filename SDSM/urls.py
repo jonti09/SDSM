@@ -4,8 +4,8 @@ from SDSM import task
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^notification/', include('Data.urls')),
+    url(r'^', include('Data.urls')),
 ]
 
-task.insert_toi()
-task.weather()
+# task.insert_toi()
+# task.weather()

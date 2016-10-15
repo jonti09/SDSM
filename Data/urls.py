@@ -20,7 +20,8 @@ urlpatterns = [
     url(r'weather/',
         ListView.as_view(queryset=Weather.objects.all().order_by('-date')[:1], template_name='weather.html')),
 
-    url(r'help/', ListView.as_view(queryset=Help.objects.all(), template_name='help.html')),
+    url(r'help/',
+        ListView.as_view(queryset=Weather.objects.all().order_by('-date')[:1], template_name='help.html')),
 
     url(r'^sleep/', sleep),
 ]
