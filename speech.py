@@ -10,6 +10,7 @@ try:
     fp = webdriver.FirefoxProfile('/home/viper/.mozilla/firefox/mwad0hks.default')
     b = webdriver.Firefox(fp)
     b.maximize_window()
+    b.get('http://localhost/')
 except WebDriverException:
     pass
 
@@ -19,22 +20,25 @@ def callback(recognizer, audio):
         cmd = r.recognize(audio)
         print("You said " + cmd)
 
-        if re.findall(r'notification', cmd):
-            b.get('http://localhost/notification/news')
+        if re.findall(r'go home| gohome', cmd):
+            b.get('http://localhost/')
+
+        if re.findall(r'news', cmd):
+            b.get('http://localhost/news')
 
         if re.findall(r'what|can|say', cmd):
-            b.get('http://localhost/notification/news')
+            b.get('http://localhost/news')
 
         if re.findall(r'sleep', cmd):
-            b.get('http://localhost/notification/sleep')
+            b.get('http://localhost/sleep')
 
         if re.findall(r'wake up', cmd):
-            b.get('http://localhost/notification')
+            b.get('http://localhost/')
 
         if re.findall(r'yesterday|previous day', cmd):
-            b.get('http://localhost/notification/yesterday')
+            b.get('http://localhost/yesterday')
 
-        if re.findall(r'map|\w+', cmd):
+        if re.findall(r'map \w+', cmd):
             city = cmd.split(' ')[-1]
             b.get('http://localhost/map/?city=' + city)
 
