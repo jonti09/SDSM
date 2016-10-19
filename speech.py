@@ -38,7 +38,7 @@ def callback(recognizer, audio):
         if re.findall(r'yesterday|previous day', cmd):
             b.get('http://localhost/yesterday')
 
-        if re.findall(r'map \w+', cmd):
+        if re.findall(r'map of \w+', cmd):
             city = cmd.split(' ')[-1]
             b.get('http://localhost/map/?city=' + city)
 
