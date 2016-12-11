@@ -20,19 +20,16 @@ def callback(recognizer, audio):
         cmd = r.recognize(audio)
         print("You said " + cmd)
 
-        if re.findall(r'go home| gohome', cmd):
-            b.get('http://localhost/')
-
-        if re.findall(r'news', cmd):
+        if re.findall(r'news|notification', cmd):
             b.get('http://localhost/news')
 
-        if re.findall(r'what|can|say', cmd):
-            b.get('http://localhost/news')
+        if re.findall(r'help|what can i say', cmd):
+            b.get('http://localhost/help')
 
         if re.findall(r'sleep', cmd):
             b.get('http://localhost/sleep')
 
-        if re.findall(r'wake up', cmd):
+        if re.findall(r'go home|gohome|wake up', cmd):
             b.get('http://localhost/')
 
         if re.findall(r'yesterday|previous day', cmd):
@@ -44,6 +41,7 @@ def callback(recognizer, audio):
 
     except sr.UnknownValueError:
         print("Couldn't catch that")
+
     except sr.RequestError as e:
         print("Can not request recognition at the moment")
 

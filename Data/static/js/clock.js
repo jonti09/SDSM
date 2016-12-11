@@ -12,6 +12,7 @@ function clock() {
             h -= 12;
     }
 
+    h = checkTime(h);
     m = checkTime(m);
     document.getElementById('time').innerHTML = h + ":" + m + " " + meridian;
     var t = setTimeout(clock, 500);
