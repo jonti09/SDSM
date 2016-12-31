@@ -5,5 +5,5 @@ Installation:
 
 
 TO Run the project:
-	'python3 speech.py'
-	'sudo python3 manage.py runserver 80'
+	`python3 speech.py`
+	`sudo python3 manage.py runserver 80`
