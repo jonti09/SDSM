@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Youtube{% endblock %}
+
+{% block body %}
+	<div style="margin-left: 25%; margin-top: 30%" id="help">
+		{% if error %}
+			<p>{{ error }}</p>
+		{% else %}
+			<ol>
+			{% for data in urls %}
+				<li>{{ data|safe }}</li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+	</div>
+{% endblock body %}
