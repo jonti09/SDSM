@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
 import speech_recognition as sr
 import re
-import selenium.webdriver as webdriver
 import time
-from selenium.common.exceptions import WebDriverException
+import selenium.webdriver as webdriver
+# from selenium.common.exceptions import WebDriverException
 
 r = sr.Recognizer()
-try:
-    fp = webdriver.FirefoxProfile('/home/viper/.mozilla/firefox/mwad0hks.default')
-    b = webdriver.Firefox(fp)
-    b.maximize_window()
-    b.get('http://localhost/')
-except WebDriverException:
-    pass
+
+fp = webdriver.FirefoxProfile('/home/viper/.mozilla/firefox/8yc35112.default')
+b = webdriver.Firefox(fp)
+b.maximize_window()
+b.get('http://localhost/')
+
 
 
 def callback(recognizer, audio):
