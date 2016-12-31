@@ -1,5 +1,0 @@
-django==1.10.4
-selenium==3.0.2
-setuptools
-sudo apt-get install portaudio19-dev python3-all-dev && sudo pip3 install pyaudio
-sudo mv geckodriver /usr/local/bin/

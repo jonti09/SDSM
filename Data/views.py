@@ -14,7 +14,7 @@ def index(request):
 
 def news(request):
 	slug = {
-		'news': ToiNews.objects.all().order_by('-date')[:10],
+		'news_list': ToiNews.objects.all().order_by('-date')[:10],
 		'weather': Weather.objects.all().order_by('-date')[:1],
 	}
 	return render(request, 'news.html', slug)
@@ -22,7 +22,7 @@ def news(request):
 
 def yesterday(request):
 	slug = {
-		'news': ToiNews.objects.filter(date__lte=(datetime.now() - timedelta(days=1)))[:10],
+		'news_list': ToiNews.objects.filter(date__lte=(datetime.now() - timedelta(days=1)))[:10],
 		'weather': Weather.objects.all().order_by('-date')[:1],
 	}
 	return render(request, 'news_yesterday.html', slug)

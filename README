@@ -1,11 +1,9 @@
-Packages Needed:
+Installation:
+	For Debian based systems, run
 
-    pip3 (sudo apt-get install python3-pip)
-    SpeechRecognition (sudo pip3 install SpeechRecognition)
-    Django 1.9 (sudo pip3 install django==1.9)
-    Python3
+	`sudo sh setup`
 
-Run:
 
-    cd Project/
-    sudo python3 manage.py runserver 80 (or python3 manage.py runserver (port will be 8000)
+TO Run the project:
+	'python3 speech.py'
+	'sudo python3 manage.py runserver 80'
