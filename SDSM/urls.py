@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^', include('Data.urls')),
 ]
 
-task.insert_toi()
-task.weather()
+# task.insert_toi()
+# task.weather()

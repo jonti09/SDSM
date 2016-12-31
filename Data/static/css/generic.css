@@ -8,13 +8,14 @@ li {
 
 body {
     background-color: black;
+    color: white;
 }
 
 .msg {
     font-size: 4em;
     width: 100%;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 20%;
 }
 
 .greet {
@@ -24,5 +25,8 @@ body {
 
 .help {
     font-size: 1em;
-    margin-top: 20%;
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+    width: 50%;
 }

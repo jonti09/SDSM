@@ -1,40 +1,14 @@
-<html>
-<head>
-    <title>Help</title>
-    {% load staticfiles %}
-    <script src="{% static 'js/clock.js' %}"></script>
-    <script src="{% static 'js/jQuery.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/generic.css' %}">
-    <script>
-        $(function(){
-            $.ajax({
-                'url': 'weather/',
-                success: function (data) {
-                    $("#weather").append(data)
-                }
-            });
-        });
-    </script>
-</head>
-
-<body onload="clock()">
-
-    <div style="align-content: right; margin-left: 85%">
-        <img src="{% static 'icon/weather-ico.png' %}" width="64px" height="64px" align="center">
-        <p id="weather"></p>
-    </div>
-
-    <div id="time" style="font-size: 4em; text-align: center;"></div>
-
-    <div class="msg greet">
-        <p>Hey, There!!</p>
-    </div>
-
-    <div style="margin: 0 25% 0 25%;">
+{% extends "base.html" %}
+{% block title %}Map{% endblock %}
+{% block body %}
+    <div style="margin: 20% 25% 0 25%;">
+        {% if error %}
+            <h2 style="text-align: center; position: relative; top: 100px;">{{ error }}</h2>
+        {% else %}
         <iframe width="100%" height="400px"
                 src="http://www.maps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q={{ city }}+()&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=A&amp;output=embed"
                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
+        {% endif %}
     </div>
-</body>
-</html>
+{% endblock %}

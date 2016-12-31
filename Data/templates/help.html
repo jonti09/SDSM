@@ -1,32 +1,12 @@
-<html>
-<head>
-    <title>Help</title>
-    {% load staticfiles %}
-    <script src="{% static 'js/clock.js' %}"></script>
-    <script src="{% static 'js/jQuery.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/generic.css' %}">
-    <script>
-        $('#help').animate({'margin-top': '50px'}, 1000);
-    </script>
-</head>
+{% extends 'base.html' %}
+{% block title %}Help{% endblock %}
 
-<body onload="clock()">
-
-    <div style="align-content: right; margin-left: 85%">
-        <img src="{% static 'icon/weather-ico.png' %}" width="64px" height="64px" align="center">
-        {% for info in object_list %}
-            <h1>{{ info.temp }}C</h1>
-            <p>of {{ info.city }}</p>
-        {% endfor %}
-    </div>
-
-    <div id="time" style="font-size: 4em; text-align: center;"></div>
-
+{% block body %}
+    <div id="time" class="msg"></div>
     <div class="msg greet">
         <p>Hey, There!!</p>
     </div>
-
-    <div style="margin-left: 25%; margin-top: 10%" id="help">
+    <div style="margin-left: 25%; margin-top: 5%" id="help">
         <h4>Notification</h4>
         <p style="margin-left: 2%;">- Shows the News and Weather information.</p>
 
@@ -36,5 +16,4 @@
         <h4>Map</h4>
         <p style="margin-left: 2%;">- Shows the Map.</p>
     </div>
-</body>
-</html>
+{% endblock %}

@@ -3,14 +3,17 @@ import speech_recognition as sr
 import re
 import time
 import selenium.webdriver as webdriver
+import pyautogui
 # from selenium.common.exceptions import WebDriverException
 
 r = sr.Recognizer()
 
-fp = webdriver.FirefoxProfile('/home/viper/.mozilla/firefox/8yc35112.default')
-b = webdriver.Firefox(fp)
+# fp = webdriver.FirefoxProfile('/home/viper/.mozilla/firefox/8yc35112.default')
+b = webdriver.Firefox()
 b.maximize_window()
 b.get('http://localhost/')
+pyautogui.press('enter')
+pyautogui.press('f11')
 
 
 
@@ -37,6 +40,9 @@ def callback(recognizer, audio):
         if re.findall(r'map of \w+', cmd):
             city = cmd.split(' ')[-1]
             b.get('http://localhost/map/?city=' + city)
+
+        if re.findall(r'trending| trendings', cmd):
+            b.get('http://localhost/youtube/trending')
 
     except sr.UnknownValueError:
         print("Couldn't catch that")

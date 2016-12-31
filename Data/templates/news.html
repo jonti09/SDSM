@@ -1,11 +1,11 @@
-{% extends 'template.html' %}
+{% extends 'home.html' %}
+{% block title %}News{% endblock %}
 
-{% block news %}
+{% block body %}
     <h2 style="padding-left: 50px;">News</h2>
     <ul style="list-style-type: circle;">
-        {% for news in object_list %}
+        {% for news in news_list %}
             <li>{{ news.head_line }}</li>
-{#            <br/>&nbsp;@ {{ news.date|date:'d-m | h:m' }}#}
         {% endfor %}
     </ul>
 {% endblock %}
