@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sudo apt-get install python3-pip
+sudo apt-get install portaudio19-dev python3-all-dev
+
+sudo pip3 install django==1.9
+sudo pip3 install selenium==3.0.2
+sudo pip3 install speechrecognition
+sudo pip3 install setuptools
+sudo pip3 install pyaudio
+
+sudo mv geckodriver /usr/local/bin/
+sudo chmod +x /usr/local/bin/geckodriver 
