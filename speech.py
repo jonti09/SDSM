@@ -4,17 +4,29 @@ import re
 import time
 import selenium.webdriver as webdriver
 import pyautogui
-# from selenium.common.exceptions import WebDriverException
+from datetime import datetime
+import os
 
 r = sr.Recognizer()
 
-# fp = webdriver.FirefoxProfile('/home/viper/.mozilla/firefox/8yc35112.default')
 b = webdriver.Firefox()
 b.maximize_window()
 b.get('http://localhost/')
 pyautogui.press('enter')
 pyautogui.press('f11')
 
+video_no = {
+    'first': 1,
+    'second': 2,
+    'third': 3,
+    'fourth': 4,
+    'fifth': 5,
+    'sixth': 6,
+    'seventh': 7,
+    'eighth': 8,
+    'ninth': 9,
+    'tenth': 10,
+}
 
 
 def callback(recognizer, audio):
@@ -37,12 +49,25 @@ def callback(recognizer, audio):
         if re.findall(r'yesterday|previous day', cmd):
             b.get('http://localhost/yesterday')
 
+        if re.findall(r'screenshot|screen shot', cmd):
+            sc = pyautogui.screenshot()
+            if not os.path.exists('Media'):
+                os.mkdir('Media')
+            os.chdir('Media')
+            sc.save('screenshot_' + str(datetime.now()) + '.png')
+            os.chdir('..')
+
         if re.findall(r'map of \w+', cmd):
             city = cmd.split(' ')[-1]
             b.get('http://localhost/map/?city=' + city)
 
-        if re.findall(r'trending| trendings', cmd):
+        if re.findall(r'trending|trendings', cmd):
             b.get('http://localhost/youtube/trending')
+
+        if re.search(r'\w+ video', cmd):
+            no = video_no[cmd.split(' ')[-2]]
+            if no > 0:
+                b.get('http://localhost/youtube/' + str(no))
 
     except sr.UnknownValueError:
         print("Couldn't catch that")
@@ -54,8 +79,11 @@ def callback(recognizer, audio):
 with sr.Microphone() as source:
     r.adjust_for_ambient_noise(source)
 
-print("Say something!")
+print("Say something!!! ")
 audio = r.listen_in_background(source, callback)
 
 while True:
-    time.sleep(0.05)
+    try:
+        time.sleep(0.5)
+    except KeyboardInterrupt:
+        exit(0)
