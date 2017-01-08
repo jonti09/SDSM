@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.http import request
-from .data.youtube.Youtube import get_trendings
-from .models import ToiNews, Weather, Help
+from .models import ToiNews, Weather, Help, Youtube
 from datetime import datetime, timedelta
 
 
@@ -59,16 +57,16 @@ def maps(request):
 
 def youtube(request, url):
 	weather = Weather.objects.all().order_by('-date')[:1]
-
 	if url == 'trending':
 		slug = {
-			'urls': get_trendings()[:5], 
+			'urls': Youtube.objects.all().order_by('-views')[:5], 
 			'weather': weather,
 		}
-		return render(request, 'youtube.html', slug)
+		return render(request, 'youtube_trending.html', slug)
 	else:
+		# URL = 'https://www.youtube.com/watch?v=t6ta6Zd1BIk'
 		slug = {
-			'error': 'Nothing to iter over', 
+			'url': Youtube.objects.all().order_by('-views')[int(url)],
 			'weather': weather,
 		}
-		return render(request, 'youtube.html', slug)
+		return render(request, 'youtube_player.html', slug)

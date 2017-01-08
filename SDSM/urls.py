@@ -9,3 +9,4 @@ urlpatterns = [
 
 # task.insert_toi()
 # task.weather()
+# task.trending()
