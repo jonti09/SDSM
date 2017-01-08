@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install python3-pip
+sudo apt-get install python3-pip scrot
 sudo apt-get install portaudio19-dev python3-all-dev python3-bs4
 
 sudo pip3 install django==1.9
