@@ -6,7 +6,3 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('Data.urls')),
 ]
-
-# task.insert_toi()
-# task.weather()
-# task.trending()

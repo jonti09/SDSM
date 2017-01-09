@@ -35,7 +35,7 @@ class Help(models.Model):
 class Youtube(models.Model):
     title = models.CharField(max_length=255, primary_key=True)
     video_id = models.CharField(max_length=100)
-    views = models.CharField(max_length=15)
+    views = models.IntegerField()
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:

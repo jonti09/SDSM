@@ -41,7 +41,7 @@ def trending():
         for val in data:
             obj.title = str(val).split('\n')[0]
             obj.video_id = str(val).split('\n')[1]
-            obj.views = str(val).split('\n')[-1]
+            obj.views = int(str(val).split('\n')[-1])
             obj.date = datetime.now()
             obj.save()
     except RuntimeWarning:

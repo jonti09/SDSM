@@ -64,9 +64,8 @@ def youtube(request, url):
 		}
 		return render(request, 'youtube_trending.html', slug)
 	else:
-		# URL = 'https://www.youtube.com/watch?v=t6ta6Zd1BIk'
 		slug = {
-			'url': Youtube.objects.all().order_by('-views')[int(url)],
+			'url': Youtube.objects.all().order_by('-views')[int(url) - 1],
 			'weather': weather,
 		}
 		return render(request, 'youtube_player.html', slug)

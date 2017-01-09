@@ -27,12 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CRONJOBS = [
+    ('*/60 * * * *', 'SDSM.task.insert_toi'),
+    ('*/60 * * * *', 'SDSM.task.trending'),
+]
+
 
 # Application definition
 
 
 INSTALLED_APPS = [
     'Data',
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -16,8 +16,9 @@ def get_trendings():
             try:
                 title = str(trend.contents[0])
                 video_id = str(trend['href']).split('?v=')[-1]
-                views = str(view.contents[1].contents[0]).split(' ')[0]
-                trending.append(title + '\n' + video_id + '\n' + views)
+                views_str = str(view.contents[1].contents[0]).split(' ')[0]
+                views_no = str(('').join(views_str.split(',')))
+                trending.append(title + '\n' + video_id + '\n' + views_no)
             except IndexError:
                 pass
     return trending[:10]

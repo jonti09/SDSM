@@ -16,16 +16,16 @@ pyautogui.press('enter')
 pyautogui.press('f11')
 
 video_no = {
-    'first': 1,
-    'second': 2,
-    'third': 3,
-    'fourth': 4,
-    'fifth': 5,
-    'sixth': 6,
-    'seventh': 7,
-    'eighth': 8,
-    'ninth': 9,
-    'tenth': 10,
+    'first': 1, 'I': 1, 'i': 1,
+    'second': 2, 'II': 2, 'ii': 2,
+    'third': 3, 'III': 3, 'iii': 3,
+    'fourth': 4, 'IV': 4, 'iv': 4,
+    'fifth': 5, 'V': 5, 'v': 5, 
+    'sixth': 6, 'VI': 6, 'vi': 6, 
+    'seventh': 7, 'VII': 7, 'vii': 7, 
+    'eighth': 8, 'VIII': 8, 'viii': 8, 
+    'ninth': 9, 'IX': 9, 'ix': 9, 
+    'tenth': 10, 'X': 10, 'x': 10, 
 }
 
 
@@ -34,22 +34,22 @@ def callback(recognizer, audio):
         cmd = r.recognize(audio)
         print("You said " + cmd)
 
-        if re.findall(r'news|notification', cmd):
+        if re.search(r'news|notification', cmd):
             b.get('http://localhost/news')
 
-        if re.findall(r'help|what can i say', cmd):
+        if re.search(r'help|what can i say', cmd):
             b.get('http://localhost/help')
 
-        if re.findall(r'sleep', cmd):
+        if re.search(r'sleep', cmd):
             b.get('http://localhost/sleep')
 
-        if re.findall(r'go home|gohome|wake up', cmd):
+        if re.search(r'go home|gohome|wake up', cmd):
             b.get('http://localhost/')
 
-        if re.findall(r'yesterday|previous day', cmd):
+        if re.search(r'yesterday|previous day', cmd):
             b.get('http://localhost/yesterday')
 
-        if re.findall(r'screenshot|screen shot', cmd):
+        if re.search(r'screenshot|screen shot', cmd):
             sc = pyautogui.screenshot()
             if not os.path.exists('Media'):
                 os.mkdir('Media')
@@ -57,11 +57,11 @@ def callback(recognizer, audio):
             sc.save('screenshot_' + str(datetime.now()) + '.png')
             os.chdir('..')
 
-        if re.findall(r'map of \w+', cmd):
+        if re.search(r'map of \w+', cmd):
             city = cmd.split(' ')[-1]
             b.get('http://localhost/map/?city=' + city)
 
-        if re.findall(r'trending|trendings', cmd):
+        if re.search(r'trending|trendings', cmd):
             b.get('http://localhost/youtube/trending')
 
         if re.search(r'\w+ video', cmd):
