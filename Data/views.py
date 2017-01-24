@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ToiNews, Weather, Help, Youtube
+from .models import ToiNews, Weather, Help, Youtube, FreqCMD
 from datetime import datetime, timedelta
 
 
@@ -40,14 +40,12 @@ def sleep(request):
 def maps(request):
 	weather = Weather.objects.all().order_by('-date')[:1]
 	city = request.GET.get('city')
-
 	if city == '':
 		slug = {
 			'weather': weather, 
 			'error': 'No city specified',
 		}
 		return render(request, 'map.html', slug)
-				
 	slug = {
 		'city': city,
 		'weather': weather,
@@ -59,9 +57,10 @@ def youtube(request, url):
 	weather = Weather.objects.all().order_by('-date')[:1]
 	if url == 'trending':
 		slug = {
-			'urls': Youtube.objects.all().order_by('-views')[:5], 
+			'urls': Youtube.objects.order_by('-views')[:5], 
 			'weather': weather,
 		}
+		print(slug['urls'])
 		return render(request, 'youtube_trending.html', slug)
 	else:
 		slug = {

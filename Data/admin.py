@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Data.models import ToiNews, Weather, Help, Youtube
+from Data.models import ToiNews, Weather, Help, Youtube, FreqCMD
 
 
 class ToiNewsAdmin(admin.ModelAdmin):
@@ -19,3 +19,4 @@ admin.site.register(ToiNews, ToiNewsAdmin)
 admin.site.register(Weather)
 admin.site.register(Help)
 admin.site.register(Youtube, YoutubeAdmin)
+admin.site.register(FreqCMD)

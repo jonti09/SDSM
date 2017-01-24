@@ -1,14 +1,16 @@
 #!/bin/bash
-
-sudo apt-get install python3-pip scrot
-sudo apt-get install portaudio19-dev python3-all-dev python3-bs4
-
+sudo apt-get install python3-pip scrot portaudio19-dev python3-all-dev python3-bs4 python3 python3-dev build-essential swig libpulse-dev
+sudo pip3 install pip --upgrade
+sudo pip3 install setuptools
 sudo pip3 install django==1.9
+sudo pip3 install pyaudio
 sudo pip3 install selenium==3.0.2
 sudo pip3 install speechrecognition
-sudo pip3 install setuptools
-sudo pip3 install pyaudio
+sudo pip3 install pocketsphinx
 sudo pip3 install django-crontab
-
-sudo mv geckodriver /usr/local/bin/
-sudo chmod +x /usr/local/bin/geckodriver 
+sudo apt-get install python3-xlib
+sudo apt-get install python3-tk
+sudo pip3 install pyautogui
+sudo cp geckodriver /usr/local/bin/
+sudo chmod +x /usr/local/bin/geckodriver
+./manage.py crontab add
