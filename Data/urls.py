@@ -11,10 +11,11 @@ urlpatterns = [
 
     url(r'^help/', views.help, name='help'),
 
-    url(r'^sleep/', views.sleep),
+    url(r'^sleep/', views.sleep, name='sleep'),
 
-    url(r'^youtube/(?P<url>\w+)', views.youtube),
+    url(r'^youtube/(?P<url>\w+)', views.youtube, name='youtube'),
 
-    url(r'^map/', views.maps),
+    url(r'^map/', views.maps, name='map'),
 
+    url(r'^music/', views.songs, name='music'),
 ]

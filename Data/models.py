@@ -46,14 +46,4 @@ class Youtube(models.Model):
 
 
 class FreqCMD(models.Model):
-    youtube = models.IntegerField(default=0)
-    home = models.IntegerField(default=0)
-    help = models.IntegerField(default=0)
-    sleep = models.IntegerField(default=0)
-    wakeup = models.IntegerField(default=0)
-    news = models.IntegerField(default=0)
-    screenshot = models.IntegerField(default=0)
-    map = models.IntegerField(default=0)
-
-    def __str__(self):
-        return 'Youtube: ' + str(self.youtube) + '\nHome: ' + str(self.home) + '\nHelp: ' + str(self.help) + '\nSleep: ' + str(self.sleep) + '\nWakeup: ' + str(self.wakeup) + '\nNews: ' + str(self.news) + '\nScreenshot: ' + str(self.screenshot) + '\nMap: ' + str(self.map)
+    pass

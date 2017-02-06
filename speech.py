@@ -77,6 +77,10 @@ def callback(recognizer, audio):
 			if no > 0:
 				b.get('http://localhost/youtube/' + str(no))
 
+		if re.search(r'\w+ song', cmd):
+			print(cmd.split(' ')[0])
+			print(cmd.split(' ')[2])
+
 	except sr.UnknownValueError:
 		print("Couldn't catch that")
 
