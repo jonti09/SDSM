@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Music Player{% endblock %}
+{% block body %}
+	<div style="margin-left: 35%; margin-top: 30%" id="help">
+		<ol>	
+		{% for song in songs %}
+			<li>{{ song }}</li>
+		{% endfor %}
+		</ol>
+	</div>
+{% endblock body %}
