@@ -83,6 +83,8 @@ def songs(request):
     else:
         music.play_song(action, num)
 
+    print(action, num)
+
     slug = {
         'weather': Weather.objects.all().order_by('-date')[:1],
         'songs': music.get_songs(),

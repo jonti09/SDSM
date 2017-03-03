@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 CRONJOBS = [
     ('*/60 * * * *', 'SDSM.task.insert_toi'),
     ('*/60 * * * *', 'SDSM.task.trending'),
+    ('*/60 * * * *', 'SDSM.task.weather'),
 ]
 
 

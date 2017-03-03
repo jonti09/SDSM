@@ -4,7 +4,6 @@ import os
 
 
 def get_songs():
-    print(os.getcwd())
     if os.path.exists('/home/viper/PycharmProjects/project/Data/data/music/songs'):
         os.chdir('/home/viper/PycharmProjects/project/Data/data/music/songs/')
     else:

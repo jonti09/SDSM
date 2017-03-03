@@ -15,7 +15,7 @@ b.get('http://localhost/')
 pyautogui.press('enter')
 pyautogui.press('f11')
 
-video_no = {
+to_no = {
 	'first': 1, 'I': 1, 'i': 1,
 	'second': 2, 'II': 2, 'ii': 2,
 	'third': 3, 'III': 3, 'iii': 3,
@@ -65,6 +65,7 @@ def callback(recognizer, audio):
 			sc.save('screenshot_' + str(datetime.now()) + '.png')
 			os.chdir('..')
 
+		# show me the map of `city`; this `city` is passed as GET param
 		if re.search(r'map of \w+', cmd):
 			city = cmd.split(' ')[-1]
 			b.get('http://localhost/map/?city=' + city)
@@ -72,14 +73,30 @@ def callback(recognizer, audio):
 		if re.search(r'trending|trendings', cmd):
 			b.get('http://localhost/youtube/trending')
 
+		# play the `number` video; this `number` is passed as url
 		if re.search(r'\w+ video', cmd):
-			no = video_no[cmd.split(' ')[-2]]
+			try:
+				no = to_no[cmd.split(' ')[-2]]
+			except:
+				pass
+
 			if no > 0:
 				b.get('http://localhost/youtube/' + str(no))
 
+		# play the music or play the songs; play the `number` song
 		if re.search(r'\w+ song', cmd):
-			print(cmd.split(' ')[0])
-			print(cmd.split(' ')[2])
+			action = cmd.split(' ')[0]
+			tmp = cmd.split(' ')[2]
+			try:
+				if tmp == 'next' or tmp == 'previous':
+					action = tmp
+				else:
+					no = to_no[tmp]
+			except:
+				if no == 'next' or no == 'previous':
+					action = no
+			print(action, no)
+			# b.get('http://localhost/music/?action=' + action + '&no=' + str(no))
 
 	except sr.UnknownValueError:
 		print("Couldn't catch that")
