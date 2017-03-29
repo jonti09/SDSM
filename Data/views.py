@@ -74,14 +74,7 @@ def songs(request):
     action = str(request.GET.get('action'))
     num = int(request.GET.get('num'))
 
-    if action == 'play':
-        music.play_song(action, num)
-    
-    elif action == 'list':
-        pass
-    
-    else:
-        music.play_song(action, num)
+    music.play_song(action, num)
 
     print(action, num)
 

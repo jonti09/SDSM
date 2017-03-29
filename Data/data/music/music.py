@@ -4,8 +4,8 @@ import os
 
 
 def get_songs():
-    if os.path.exists('/home/viper/PycharmProjects/project/Data/data/music/songs'):
-        os.chdir('/home/viper/PycharmProjects/project/Data/data/music/songs/')
+    if os.path.exists('/home/pi/project/Data/data/music/songs'):
+        os.chdir('/home/pi/project/Data/data/music/songs')
     else:
         exit(0)
 
@@ -18,7 +18,7 @@ def get_songs():
     return songs[:10]
 
 
-def play_song(cmd, num=0):
+def play_song(cmd, num):
     pygame.init()
     songs = get_songs()
 
@@ -60,4 +60,3 @@ def play_song(cmd, num=0):
 
     elif cmd == "stop":
         pygame.quit()
-        exit(0)
